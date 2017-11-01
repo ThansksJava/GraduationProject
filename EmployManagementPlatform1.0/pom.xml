@@ -10,7 +10,7 @@
     <name>GraduationProject Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
+        
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
