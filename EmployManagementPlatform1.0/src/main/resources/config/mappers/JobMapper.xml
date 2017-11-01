@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jie.jobs.dao.JobMapper">
+    <insert id="addJob" parameterType="com.jie.jobs.domain.Job">
+        INSERT INTO JOB(JOBID,COMID,JOBNAME,JOBINFO,JOBNUM,
+                        JOBBEGINTIME,JOBENDTIME,JOBMONEY,JOBSTATUS,JOBTIME)
+                VALUES(S_JOB.NEXTVAL,#{comid},#{jobname},#{jobinfo},#{jobnum},
+                      TO_DATE(#{jobbegintime},'YYYY-MM-DD'),TO_DATE(#{jobendtime},'YYYY-MM-DD'),#{jobmoney},'1',SYSDATE);
+          <selectKey keyProperty="jobid" order="AFTER" resultType="Integer">
+                SELECT S_JOB.CURRVAL FROM DUAL
+          </selectKey>
+    </insert>
+    <select id="findAllJobs"  resultType="com.jie.jobs.domain.Job">
+        SELECT a.jobid,a.comid,a.jobname,a.jobinfo,a.jobnum,
+               TO_CHAR(a.jobbegintime,'YYYY-MM-DD') jobbegintime,TO_CHAR(a.jobendtime,'YYYY-MM-DD') jobendtime,a.jobmoney,a.jobstatus,
+               TO_CHAR(a.jobtime,'YYYY-MM-DD') jobtime
+          FROM JOB a
+    </select>
+    <resultMap id="com.jie.jobs.domain.Job" type="com.jie.jobs.domain.Job">
+        <id property="jobid" column="jobid"/>
+        <result property="jobname" column="jobname"/>
+        <result property="jobinfo" column="jobinfo"/>
+        <result property="jobnum" column="jobnum"/>
+        <result property="jobbegintime" column="jobbegintime"/>
+        <result property="jobendtime" column="jobendtime"/>
+        <result property="jobmoney" column="jobmoney"/>
+        <result property="jobstatus" column="jobstatus"/>
+        <result property="jobtime" column="jobtime"/>
+        <association property="company" jdbcType="com.jie.jobs.domain.Company">
+            <id property="comid" column="comid"/>
+            <result property="comname" column="comname"/>
+        </association>
+    </resultMap>
+</mapper>

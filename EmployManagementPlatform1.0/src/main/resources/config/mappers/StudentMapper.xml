@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jie.jobs.dao.StudentMapper">
+    <insert id="addStudent" parameterType="com.jie.jobs.domain.Student">
+          INSERT INTO STUDENT(STUID,STUNAME,STUNO,STUIDCARD,STUGENDER,
+                    STUNATION,STUBIRTH,STUPOLITICAL,STUTYPE,
+                    STUTEL,STUEMAIL,STUNATIVE,STUNATIVECODE,STUADDR,
+                    STUADDRCODE,STUDEP,STUMAJOR,STUSTATUS)
+             VALUES(S_STU.NEXTVAL,#{stuname},#{stuno},#{stuidcard},#{stugender},
+                    #{stunation},TO_DATE(#{stubirth},'YYYY-MM-DD'),#{stupolitical},#{stutype},
+                    #{stutel},#{stuemail},#{stunative},#{stunativecode},#{stuaddr},
+                    #{stuaddrcode},#{studep},#{stumajor},#{stustatus})
+          <selectKey keyProperty="stuid" order="AFTER" resultType="Integer">
+                SELECT S_STU.CURRVAL FROM DUAL
+          </selectKey>
+    </insert>
+</mapper>

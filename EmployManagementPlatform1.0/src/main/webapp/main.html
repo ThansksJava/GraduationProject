@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主界面</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/ace.min.css" />
+    <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+    <link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+    <link rel="stylesheet" href="assets/css/datepicker.css" />
+    <link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
+
+    <script src="assets/js/ace-extra.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="AngularJs/angular.min.js"></script>
+    <script src="AngularJs/angular-route.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/register/registerController.js"></script>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+    <!-- 表格 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-table.min.css">
+    <script src="bootstrap/js/bootstrap-table.min.js"></script>
+</head>
+<body ng-app="app">
+<!-- 导航栏 -->
+    <div class="navbar navbar-default" id="navbar">
+            <!-- 导航条 -->
+            <div class="navbar-container" id="navbar-container">
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                            <i class="icon-leaf"></i>
+                            高校就业管理平台
+                        </small>
+                    </a>
+                </div>
+                <div class="navbar-header pull-right" role="navigation">
+                    <ul class="nav ace-nav">
+                        <li class="purple">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <i class="icon-bell-alt icon-animated-bell"></i>
+                                <span class="badge badge-important">8</span>
+                            </a>
+                        </li>
+
+                        <li class="green">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <i class="icon-envelope icon-animated-vertical"></i>
+                                <span class="badge badge-success">5</span>
+                            </a>
+                        </li>
+
+                        <li class="light-blue">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo">
+                                <span class="user-info">
+                                    <small>欢迎登陆</small>
+                                    冯杰先生
+                                </span>
+
+                                <i class="icon-caret-down"></i>
+                            </a>
+
+                            <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-cog"></i>
+                                        设置
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-user"></i>
+                                        个人资料
+                                    </a>
+                                </li>
+
+                                <li class="divider"></li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-off"></i>
+                                        退出
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul><!-- /.ace-nav -->
+                </div><!-- /.navbar-header -->
+            </div><!-- /.container -->
+    </div>
+<!-- body主体部分 -->
+        <div class="main-container" id="main-container">
+            <div class="main-container-inner">
+                <div class="sidebar" id="sidebar">
+                    <ul class="nav nav-list">
+                        <li>
+                        <a id="queryJobs" href="#/queryJobs" class="dropdown-toggle">
+                            <i class="icon-search nav-search-icon"></i>
+                            <span class="menu-text">岗位查询</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                            <i class="icon-search nav-search-icon"></i>
+                                <span class="menu-text">简历管理</span>
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-double-angle-right"></i>
+                                        新建简历
+                                     </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-double-angle-right"></i>
+                                        查看简历
+                                     </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-double-angle-right"></i>
+                                        修改简历
+                                     </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-search nav-search-icon"></i>
+                                <span class="menu-text">投递查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-search nav-search-icon"></i>
+                                <span class="menu-text">投递查询</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- /.nav-list -->
+                </div>
+                <div class="main-content">
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home home-icon"></i>
+                                <a href="#">首页</a>
+                            </li>
+                            <li class="active">动态填入应该</li>
+                        </ul><!-- .breadcrumb -->
+
+                    </div>
+                    <div class="page-content" ng-view>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

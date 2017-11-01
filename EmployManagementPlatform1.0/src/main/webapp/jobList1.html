@@ -1,0 +1,38 @@
+    <div class="panel panel-default">
+        <div class="panel-heading">查询条件</div>
+        <div class="panel-body">
+            <form id="formSearch" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-1" for="txt_search_jobname">岗位名称</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="txt_search_jobname" name="qaac202">
+                    </div>
+                    <label class="control-label col-sm-1" for="txt_search_companyname">企业名称</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="txt_search_companyname">
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" id="btn_query" class="btn btn-primary">查询</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+       <div class="ibox">
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <!-- Example Toolbar -->
+                        <div class="example-wrap">
+                            <div class="example">
+                                <table id="tb_jobs" data-mobile-responsive="true">
+
+                                </table>
+                            </div>
+                        </div>
+                        <!-- End Example Toolbar -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="js/table.js"></script>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>学生注册</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap/css/bootstrapValidator.css" rel="stylesheet">
+  <script src="js/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- <script src="bootstrap/js/bootstrapValidator.js"></script> -->
+  <script src="AngularJs/angular.min.js"></script>
+  <script src="AngularJs/angular-route.min.js"></script>
+  <style type="text/css" media="screen">
+       body{
+        font-family:'微软雅黑';
+        line-height:36px;
+        background-image: url(images/register.jpg);
+       }
+       .offset{
+            margin-left:15%;
+       }
+  </style>
+<!--   <script>
+    $(document).ready(function() {
+      /**
+       * 下面是进行插件初始化
+       * 你只需传入相应的键值对
+       * */
+      $('#registerForm').bootstrapValidator({
+              message: 'This value is not valid',
+              excluded : [':hidden'],//设置hidden的控件也是可验证的
+              feedbackIcons: {/*输入框不同状态，显示图片的样式*/
+                  valid: 'glyphicon glyphicon-ok',
+                  invalid: 'glyphicon glyphicon-remove',
+                  validating: 'glyphicon glyphicon-refresh'
+              },
+              fields: {/*验证*/
+                  stuname: {/*键名和input name值对应*/
+                      validators: {
+                          notEmpty: {/*非空提示*/
+                              message: '姓名不能为空'
+                          }
+                      }
+                  },
+                  stutel: {
+                      validators: {
+                          notEmpty: {
+                              message: '号码不为空'
+                          },
+                          regexp: {/* 只需加此键值对 */
+                              regexp: /^1[34578]\d{9}$/,
+                              message: '号码输入有误'
+                          }
+                      }
+                  },
+                  stuemail: {
+                      validators: {
+                          notEmpty: {
+                              message: '邮箱不为空'
+                          },
+                          emailAddress: {
+                              message: '邮箱不合法'
+                          }
+                      }
+                  },
+                  stuidcard:{
+                      validators:{
+                          notEmpty:{
+                              message:'身份证号不能为空'
+                          },
+                          regexp:{
+                              regexp:/(^\d{15}$)|(^\d{17}(\d|X)$)/,
+                              message:'请输入正确的身份证'
+                          }
+                      }
+                  }
+              }
+
+          });
+    });
+</script> -->
+</head>
+<body>
+<h2 align="center">学生注册</h2>
+  <form id="registerForm" class="form-horizontal">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 offset">
+                <label>姓名:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="stuname" class="form-control" placeholder="Username" autofocus="autofocus" required>
+            </div>
+            <div class="col-md-1">
+              <label>身份证号:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="stuidcard" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">
+             <div class="col-md-1 offset">
+              <label>性别:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="radio" name="stugender" value="1"  checked="true">男
+                <input type="radio" name="stugender" value="2">女
+            </div>
+            <div class="col-md-1">
+                <label>出生日期:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="date" name="stubirth" class="form-control" placeholder="1994-08-18" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 offset">
+                <label>民族:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <select name="stunation" class="form-control">
+                    <option value='1' selected>汉族</option>
+                    <option value='2' selected>维族</option>
+                    <option value='3' selected>蒙古族</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+              <label>政治面貌:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <select name="stupolitical" id="" class="form-control" required>
+                    <option value="1">群众</option>
+                    <option value="2" selected>共青团员</option>
+                    <option value="3">共产党员</option>
+                    <option value="4">民主党派</option>}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 offset">
+                <label>毕业生类别:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <select name="stutype" class="form-control">
+                    <option value="1">本科</option>
+                    <option value="2">硕士</option>
+                    <option value="3">博士</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+              <label>联系电话:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="stutel" class="form-control" placeholder=""/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 offset">
+                <label>电子邮箱:</label>
+            </div>
+            <div class="col-md-6 form-group" style="width:653px;">
+                <input type="text" name="stuemail" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1  offset">
+              <label>籍贯:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="stunative" class="form-control" placeholder=""/>
+            </div>
+            <div class="col-md-1">
+                <label>籍贯邮编:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="stunativecode" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 offset">
+              <label>现住址:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="stuaddr" class="form-control" placeholder=""/>
+            </div>
+            <div class="col-md-1">
+                <label>现邮编:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="stuaddrcode" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 offset">
+              <label>院系:</label>
+            </div>
+            <div class="col-md-3 form-group">
+            <select name="studep" class="form-control">
+                <option value="1">计算机工程</option>
+                <option value="2">外国语</option>
+            </select>
+           </div>
+            <div class="col-md-1">
+                <label>专业:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <select name="stumajor" class="form-control">
+                    <option value="1">计算机</option>
+                </select>
+            </div>
+        </div>
+        <!-- 学院和专业的联动 -->
+        <script type="text/javascript">
+
+        </script>
+        <div class="row">
+            <div class="col-md-1 offset">
+                <label>学号：</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="stuno" class="form-control">
+           </div>
+        </div>
+      </div>
+    <div align="center">
+        <input id="submit" class="btn btn-success"  type="submit" value="注册" >
+        <input class="btn btn-default" type="reset" value="重置">
+    </div>
+   </form>
+   <input type="hidden">
+   <script>
+       $(function(){
+            $("#submit").click(function(){
+                var studentInfo = {
+                    'stuname':$("input[name='stuname']").val(),
+                    'stuno':$("input[name='stuno']").val(),
+                    'stuidcard':$("input[name='stuidcard']").val(),
+                    'stugender':$("input[name='stugender']").val(),
+                    'stunation':$("select[name='stunation']").val(),
+                    'stubirth':$("input[name='stubirth']").val(),
+                    'stupolitical':$("select[name='stupolitical']").val(),
+                    'stutype':$("select[name='stutype']").val(),
+                    'stutel':$("input[name='stutel']").val(),
+                    'stuemail':$("input[name='stuemail']").val(),
+                    'stunative':$("input[name='stunative']").val(),
+                    'stunativecode':$("input[name='stunativecode']").val(),
+                    'stuaddr':$("input[name='stuaddr']").val(),
+                    'stuaddrcode':$("input[name='stuaddrcode']").val(),
+                    'studep':$("select[name='studep']").val(),
+                    'stumajor':$("select[name='stumajor']").val()
+                };
+                alert(JSON.stringify(studentInfo));
+                $.ajax({
+                    url : '/regist.do',
+                    type : "POST",
+                    dataType:"json",
+//                    contentType: "application/json;charset=utf-8",
+                    data : studentInfo,
+                    success : function(data) {
+                        if (data.result == "success") {
+                            alert("恭喜您注册成功,您的初始密码为您的身份证后6位!");
+                            window.location.href="/login.html";
+                        }
+                    },
+                    error : function(data) {
+                        alert("请求失败");
+                    }
+                });
+            return false;
+            });
+       });
+   </script>
+</body>
+</html>
