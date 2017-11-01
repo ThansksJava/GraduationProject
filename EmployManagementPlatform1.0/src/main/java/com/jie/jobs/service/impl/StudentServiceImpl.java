@@ -38,7 +38,7 @@ class StudentServiceImpl implements StudentService
         user.setUserstatus("1");
         user.setUsersid(student.getStuid());
         user.setUsertype("2");
-        userMapper.addUser(user);
+        //userMapper.addUser(user);
     }
 
     @Autowired
